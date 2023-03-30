@@ -16,14 +16,14 @@ const NFTMintPage: React.FC = () => {
       );
       return;
     }
-    
+
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
 
     const { baseContract } = await connect();
     console.log(baseContract);
 
-    await window.ethereum.request({ method: "eth_requestAccounts" });
+    await (window.ethereum as any).request({ method: "eth_requestAccounts" });
     const accounts = await provider.listAccounts();
     console.log(accounts);
 
