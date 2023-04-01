@@ -10,7 +10,7 @@ const MenuItem: React.FC = () => {
       <ul className="space-y-2">
         {/* Add menu items here */}
         <li>
-          <a href="#" className="hover:text-blue-400">
+          <a href="/profile/dashboard" className="hover:text-blue-400">
             Item 1
           </a>
         </li>
