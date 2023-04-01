@@ -19,7 +19,7 @@ const ConnectWalletButton: React.FC = () => {
     // Request access to the user's Ethereum wallet
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     try {
-      await (window.ethereum as any).request({ method: "eth_requestAccounts" });
+      await window.ethereum.request({ method: "eth_requestAccounts" });
       const accounts = await provider.listAccounts();
       setAddress(accounts[0]);
       const userAddress = accounts[0];
@@ -44,21 +44,13 @@ const ConnectWalletButton: React.FC = () => {
     : "Connect Wallet";
 
   return (
-    <div className="flex flex-col items-center space-y-4">
+    <div className="flex flex-col items-center">
       <Button
         onClick={handleConnectWallet}
         className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
       >
         {buttonText}
       </Button>
-      {/* {address && (
-        <Button
-          onClick={handleNavigateToMint}
-          className="px-4 py-2 text-white bg-green-600 rounded-md hover:bg-green-700"
-        >
-          Go to Mint Page
-        </Button>
-      )} */}
     </div>
   );
 };

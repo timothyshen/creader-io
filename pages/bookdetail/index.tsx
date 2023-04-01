@@ -1,7 +1,7 @@
 import Link from "next/link";
+import Image from "next/image";
 import React, { useState } from "react";
 import NFTMintPage from "@/app/components/NFTMintPage";
-import coverImage from "./cover-image.jpg";
 
 interface Novel {
   id: number;
@@ -49,7 +49,13 @@ const NovelDetails: React.FC = () => {
       </nav>
       <div className="grid grid-cols-3 gap-4">
         <div className="col-span-1">
-          <div className="h-50 w-1/2 bg-gray-300 md:rounded-none rounded-full "></div>
+          <Image
+            className="w-full h-full object-cover mb-4 rounded"
+            src="https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png"
+            alt="Novel Cover"
+            width={400}
+            height={400}
+          />
         </div>
         <div className="col-span-2 flex flex-col justify-between">
           <div className="mb-2">
