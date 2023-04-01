@@ -16,6 +16,27 @@ const AuthorDashboard = () => {
       },
     ],
   };
+
+  const bardata = {
+    labels: ["January", "February", "March", "April", "May"],
+    datasets: [
+      {
+        label: "Sample Data",
+        data: {
+          datasets: [
+            { fill: "origin" }, // 0: fill to 'origin'
+            { fill: "+2" }, // 1: fill to dataset 3
+            { fill: 1 }, // 2: fill to dataset 1
+            { fill: false }, // 3: no fill
+            { fill: "-2" }, // 4: fill to dataset 2
+            { fill: { value: 25 } }, // 5: fill to axis value 25
+          ],
+        },
+        borderColor: "rgba(75,192,192,1)",
+        backgroundColor: "rgba(75,192,192,0.4)",
+      },
+    ],
+  };
   return (
     <>
       <Head>
@@ -143,7 +164,7 @@ const AuthorDashboard = () => {
 
                 <div className="bg-gray-100 p-4 rounded">
                   <h3 className="text-lg font-bold mb-2">Status 2</h3>
-                  <Line data={chartData} />
+                  <Line data={bardata} />
                 </div>
 
                 <div className="bg-gray-100 p-4 rounded">

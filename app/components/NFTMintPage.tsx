@@ -38,8 +38,8 @@ const NFTMintPage: React.FC = () => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="w-full max-w-md p-6 bg-white rounded shadow-md">
+    <>
+      <div>
         <h1 className="mb-4 text-2xl font-semibold text-center">
           Mint Your NFT
         </h1>
@@ -54,14 +54,22 @@ const NFTMintPage: React.FC = () => {
             onChange={(e) => setUri(e.target.value)}
           />
         </div>
-        <Button
-          onClick={mintNFT}
-          className="w-full py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700"
-        >
-          Mint NFT
-        </Button>
+        <div className="mx-auto">
+          <Button
+            onClick={mintNFT}
+            className="w-full mb-3 text-white bg-blue-600 rounded-md hover:bg-blue-700"
+          >
+            Mint NFT
+          </Button>
+          <Button
+            onClick={mintNFT}
+            className="w-full text-white bg-red-600 rounded-md hover:bg-red-700"
+          >
+            Cancel
+          </Button>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 
