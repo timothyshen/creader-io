@@ -1,7 +1,17 @@
 import Head from "next/head";
 import Link from "next/link";
 import ConnectButton from "@/app/components/ConnectButton";
-import NFTMintPage from "@/app/components/NFTMintPage";
+import Link from "next/link";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faFacebook,
+  faTwitter,
+  faInstagram,
+} from "@fortawesome/free-brands-svg-icons";
+
+// import the facebook icon
 
 export default function Home() {
   return (
