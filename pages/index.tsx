@@ -1,12 +1,14 @@
+import React from "react";
 import Head from "next/head";
-import Link from "next/link";
-import ConnectButton from "@/app/components/ConnectButton";
 import NextLink from "next/link";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Hero from "@/app/components/Home/Hero";
 import AboutSection from "@/app/components/Home/AboutSection";
 import GenericLayout from "@/app/layout/GenericLayout";
+import HomeFeature from "@/app/components/Home/HomeFeature";
+import Testimonials from "@/app/components/Home/Testimonials";
+import EmailSubscription from "@/app/components/Home/EmailSubscription";
 
 // import the facebook icon
 
@@ -25,67 +27,9 @@ export default function Home() {
           {/* About Section */}
           <AboutSection />
           {/* Feature Highlights */}
-          <div className="py-16 px-8">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Platform Features
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="text-center">
-                <div className="bg-blue-500 text-white p-6 rounded mb-4">
-                  Icon
-                </div>
-                <h3 className="text-xl font-bold mb-2">Copyright Protection</h3>
-                <p>
-                  Secure your work with blockchain-based copyright protection
-                  and NFTs.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-500 text-white p-6 rounded mb-4">
-                  Icon
-                </div>
-                <h3 className="text-xl font-bold mb-2">Revenue Sharing</h3>
-                <p>
-                  Earn a fair share of revenue from your work through our token
-                  system.
-                </p>
-              </div>
-              <div className="text-center">
-                <div className="bg-blue-500 text-white p-6 rounded mb-4">
-                  Icon
-                </div>
-                <h3 className="text-xl font-bold mb-2">Community Engagement</h3>
-                <p>
-                  Connect with readers and other authors in a decentralized
-                  community.
-                </p>
-              </div>
-            </div>
-          </div>
+          <HomeFeature />
           {/* Testimonials */}
-          <div className="bg-gray-100 py-16 px-8">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              What Our Users Say
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="p-8 bg-white rounded">
-                <p className="italic mb-4">
-                  &quot;Creader has revolutionized the way I publish and protect
-                  my work. I have full control over my content and receive fair
-                  compensation.&quot;
-                </p>
-                <p className="font-bold">- Author Name</p>
-              </div>
-              <div className="p-8 bg-white rounded">
-                <p className="italic mb-4">
-                  &quot;I love discovering new authors and supporting their work
-                  on Creader. The platform offers a great reading experience and
-                  a strong sense of community.&quot;
-                </p>
-                <p className="font-bold">- Reader Name</p>
-              </div>
-            </div>
-          </div>
+          <Testimonials />
           {/* Popular Works */}
           <div className="py-10">
             <h2 className="text-3xl font-bold mb-8 text-center">
@@ -172,6 +116,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          <EmailSubscription />
         </main>
       </GenericLayout>
       {/* Hero Section */}

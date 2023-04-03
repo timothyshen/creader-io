@@ -2,6 +2,9 @@ import React, { useState } from "react";
 import Head from "next/head";
 import NextLink from "next/link";
 import { Line } from "react-chartjs-2";
+import Header from "@/app/components/Common/Header";
+import SidePanel from "@/app/components/AuthorCentre/SidePanel";
+import FooterAuthor from "@/app/components/AuthorCentre/FooterAuthor";
 
 const AuthorDashboard = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -46,74 +49,11 @@ const AuthorDashboard = () => {
           content="Manage your works, track your earnings, and connect with your readers on our decentralized publishing platform."
         />
       </Head>
-      <header className="bg-blue-500 py-4">
-        <nav className="container mx-auto flex justify-between items-center">
-          <h1 className="text-white font-bold text-xl">
-            Decentralized Publishing
-          </h1>
-          <ul className="flex space-x-4">
-            <li>
-              <NextLink className="text-white" href="/profile">
-                Profile
-              </NextLink>
-            </li>
-            <li>
-              <NextLink className="text-white" href="/logout">
-                Log Out
-              </NextLink>
-            </li>
-          </ul>
-        </nav>
-      </header>
+      <Header />
 
       <main className="container mx-auto my-8 min-h-screen">
         <div className="grid grid-cols-12 gap-8">
-          <aside className="col-span-3">
-            <nav className="bg-gray-100 p-4 rounded">
-              <ul className="space-y-4">
-                <li>
-                  <NextLink
-                    className="block py-2.5 px-4 hover:bg-gray-200 text-blue-900 rounded"
-                    href="/author-dashboard"
-                  >
-                    Home
-                  </NextLink>
-                </li>
-                <li>
-                  <NextLink
-                    className="block py-2.5 px-4 hover:bg-gray-200 text-blue-900 rounded"
-                    href="/author-dashboard/work"
-                  >
-                    My Works
-                  </NextLink>
-                </li>
-                <li>
-                  <NextLink
-                    className="block py-2.5 px-4 hover:bg-gray-200 text-blue-900 rounded"
-                    href="/author-dashboard/subscribers"
-                  >
-                    Subscriber
-                  </NextLink>
-                </li>
-                <li>
-                  <NextLink
-                    className="block py-2.5 px-4 hover:bg-gray-200 text-blue-900 rounded"
-                    href="/author-dashboard/earnings"
-                  >
-                    Earnings
-                  </NextLink>
-                </li>
-                <li>
-                  <NextLink
-                    className="block py-2.5 px-4 hover:bg-gray-200 text-blue-900 rounded"
-                    href="/author-dashboard/settings"
-                  >
-                    Settings
-                  </NextLink>
-                </li>
-              </ul>
-            </nav>
-          </aside>
+          <SidePanel />
 
           <section className="col-span-9">
             {/* Main content goes here */}
@@ -164,7 +104,7 @@ const AuthorDashboard = () => {
 
                 <div className="bg-gray-100 p-4 rounded">
                   <h3 className="text-lg font-bold mb-2">Status 2</h3>
-                  <Line data={bardata} />
+                  <Line data={chartData} />
                 </div>
 
                 <div className="bg-gray-100 p-4 rounded">
@@ -182,15 +122,7 @@ const AuthorDashboard = () => {
         </div>
       </main>
 
-      <footer className="bg-blue-500 text-white ">
-        <div className=" py-4">
-          <div className="container mx-auto flex justify-between items-center">
-            <p className="">
-              &copy; 2021 Decentralized Publishing. All rights reserved.
-            </p>
-          </div>
-        </div>
-      </footer>
+      <FooterAuthor />
     </>
   );
 };
