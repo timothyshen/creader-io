@@ -1,6 +1,7 @@
 // src/components/Menu.tsx
 
 import React from "react";
+import NextLink from "next/link";
 
 const MenuItem: React.FC = () => {
   const data = [];
@@ -10,19 +11,19 @@ const MenuItem: React.FC = () => {
       <ul className="space-y-2">
         {/* Add menu items here */}
         <li>
-          <a href="/profile/dashboard" className="hover:text-blue-400">
+          <NextLink href="/profile/dashboard" className="hover:text-blue-400">
             Item 1
-          </a>
+          </NextLink>
         </li>
         <li>
-          <a href="#" className="hover:text-blue-400">
+          <NextLink href="#" className="hover:text-blue-400">
             Item 2
-          </a>
+          </NextLink>
         </li>
         <li>
-          <a href="#" className="hover:text-blue-400">
+          <NextLink href="#" className="hover:text-blue-400">
             Item 3
-          </a>
+          </NextLink>
         </li>
       </ul>
     </div>

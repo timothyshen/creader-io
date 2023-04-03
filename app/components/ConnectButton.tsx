@@ -19,7 +19,7 @@ const ConnectWalletButton: React.FC = () => {
     // Request access to the user's Ethereum wallet
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     try {
-      await window.ethereum.request({ method: "eth_requestAccounts" });
+      await (window.ethereum as any).request({ method: "eth_requestAccounts" });
       const accounts = await provider.listAccounts();
       setAddress(accounts[0]);
       const userAddress = accounts[0];

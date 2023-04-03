@@ -22,19 +22,19 @@ const Footer: React.FC = () => {
             <h3 className="text-xl font-bold mb-4">Platform</h3>
             <ul>
               <li className="mb-2">
-                <a href="#" className="text-sm hover:text-gray-300">
+                <NextLink href="/" className="text-sm hover:text-gray-300">
                   Home
-                </a>
+                </NextLink>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-sm hover:text-gray-300">
+                <NextLink href="/aboutus" className="text-sm hover:text-gray-300">
                   About Us
-                </a>
+                </NextLink>
               </li>
               <li className="mb-2">
-                <a href="#" className="text-sm hover:text-gray-300">
+                <NextLink href="/contactus" className="text-sm hover:text-gray-300">
                   Contact Us
-                </a>
+                </NextLink>
               </li>
             </ul>
           </div>
