@@ -9,6 +9,7 @@ import GenericLayout from "@/app/layout/GenericLayout";
 import HomeFeature from "@/app/components/Home/HomeFeature";
 import Testimonials from "@/app/components/Home/Testimonials";
 import EmailSubscription from "@/app/components/Home/EmailSubscription";
+import BookCaroual from "@/app/components/Home/BookCaroual";
 
 // import the facebook icon
 
@@ -31,95 +32,11 @@ export default function Home() {
           {/* Testimonials */}
           <Testimonials />
           {/* Popular Works */}
-          <div className="py-10">
-            <h2 className="text-3xl font-bold mb-8 text-center">
-              Popular Works
-            </h2>
-            <Carousel
-              showThumbs={false}
-              showStatus={false}
-              showArrows={true}
-              showIndicators={false}
-              infiniteLoop={true}
-              autoPlay={true}
-              interval={5000}
-              stopOnHover={true}
-              swipeable={true}
-              dynamicHeight={false}
-              emulateTouch={false}
-            >
-              {/* Replace with actual popular works data */}
-              {Array.from({ length: 6 }).map((_, i) => (
-                <figure
-                  className="p-4 bg-gray-100 rounded shadow flex flex-col md:flex-row text-center"
-                  key={i}
-                >
-                  <div className="bg-gray-300 rounded-none w-full md:w-1/2 h-40 md:h-auto mb-4 md:mb-0">
-                    ss
-                  </div>
-                  <div className="md:ml-4 text-center md:text-left space-y-2 flex-1">
-                    <h3 className="text-xl font-bold mb-2">
-                      Book Title {i + 1}
-                    </h3>
-                    <p className="text-sm">Rating: 4.5/5</p>
-                    <p className="m-0 text-slate-700 dark:text-slate-500">
-                      Fiction
-                    </p>
-                    <blockquote>
-                      <p className="text-lg font-medium">
-                        Short description of the book goes here. This is just a
-                        placeholder text.
-                      </p>
-                    </blockquote>
-                    <figcaption className="font-medium">
-                      <div className="text-sky-500 dark:text-sky-400">
-                        Sarah Dayan
-                      </div>
-                    </figcaption>
-                    <button className="bg-blue-500 text-white font-bold py-2 px-4 rounded">
-                      <NextLink href="/bookdetail">View Work</NextLink>
-                    </button>
-                  </div>
-                </figure>
-              ))}
-            </Carousel>
-          </div>
+          <BookCaroual />
           {/* Get Started */}
-          <div className="text-center py-10">
-            <div>
-              <h2 className="text-3xl font-bold tracking-tight text-blue-500 sm:text-4xl">
-                Subscribe to our newsletter.
-              </h2>
-              <p className="mt-4 text-lg leading-8 text-gray-500">
-                Nostrud amet eu ullamco nisi aute in ad minim nostrud
-                adipisicing velit quis. Duis tempor incididunt dolore.
-              </p>
-              <div className="mt-6  mx-auto">
-                <label htmlFor="email-address" className="sr-only">
-                  Email address
-                </label>
-                <input
-                  id="email-address"
-                  name="email"
-                  type="email"
-                  autoComplete="email"
-                  required
-                  className="w-1/3 flex-auto mr-5 rounded-md border-0 bg-white/5 px-3.5 py-2 shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
-                  placeholder="Enter your email"
-                />
-                <button
-                  type="submit"
-                  className="flex-none rounded-md bg-indigo-500 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-                >
-                  Subscribe
-                </button>
-              </div>
-            </div>
-          </div>
           <EmailSubscription />
         </main>
       </GenericLayout>
-      {/* Hero Section */}
     </>
   );
 }
