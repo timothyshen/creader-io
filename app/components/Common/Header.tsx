@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NextLink from "next/link";
-import ConnectWalletButton from "../ConnectButton";
+import ConnectWalletButton from "../ConnectButton/ConnectButton";
 
 const Header: React.FC = () => {
   const [loggedIn, setLoggIn] = useState<Boolean>(true);
@@ -15,27 +15,7 @@ const Header: React.FC = () => {
         <h1 className="text-white font-bold text-xl">
           Decentralized Publishing
         </h1>
-        {loggedIn ? (
-          <ul className="flex space-x-4">
-            <li>
-              <NextLink className="text-white" href="/author-dashboard">
-                Dashboard
-              </NextLink>
-            </li>
-            <li>
-              <NextLink className="text-white" href="/profile">
-                Profile
-              </NextLink>
-            </li>
-            <li>
-              <NextLink className="text-white" href="/" onClick={handleLoggIn}>
-                Log Out
-              </NextLink>
-            </li>
-          </ul>
-        ) : (
-          <ConnectWalletButton />
-        )}
+        {loggedIn && <ConnectWalletButton />}
       </nav>
     </header>
   );

@@ -17,7 +17,7 @@ const GenericLayout: React.FC<LayoutProps> = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header />
-      <main className="w-3/4 mx-auto">{children}</main>
+      {children}
       <Footer />
     </>
   );
