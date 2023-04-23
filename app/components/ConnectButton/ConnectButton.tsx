@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { ethers } from "ethers";
 import Button from "../Common/Button";
 import { useRouter } from "next/router";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSortUp, faSortDown } from "@fortawesome/free-solid-svg-icons";
 import NextLink from "next/link";
+import { useWalletStore } from "@/app/store/accountStore";
 
 const ConnectWalletButton: React.FC = () => {
-  const [address, setAddress] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const router = useRouter();
+  const { address, setAddress, removeAddress } = useWalletStore();
+  const button = useRef<HTMLDivElement>(null);
 
   const handleConnectWallet = async () => {
     // Check if the user has an Ethereum wallet installed
@@ -25,10 +25,7 @@ const ConnectWalletButton: React.FC = () => {
     try {
       await (window.ethereum as any).request({ method: "eth_requestAccounts" });
       const accounts = await provider.listAccounts();
-      setAddress(accounts[0]);
-      const userAddress = accounts[0];
-      setAddress(userAddress);
-      alert("Successfully connected to wallet!");
+      await setAddress(accounts[0]);
     } catch (err) {
       alert("Failed to connect to wallet.");
       console.error(err);
@@ -39,10 +36,6 @@ const ConnectWalletButton: React.FC = () => {
     setShowDropdown(!showDropdown);
   };
 
-  const handleNavigateToMint = () => {
-    router.push("/mint");
-  };
-
   const sliceAddress = (address: string) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
@@ -50,6 +43,20 @@ const ConnectWalletButton: React.FC = () => {
   const buttonText = address
     ? `Connected: ${sliceAddress(address)}`
     : "Connect Wallet";
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent): void => {
+      if (button.current && !button.current.contains(event.target as Node)) {
+        setShowDropdown(false);
+      }
+    };
+
+    window.addEventListener("click", handleClickOutside);
+
+    return () => {
+      window.removeEventListener("click", handleClickOutside);
+    };
+  }, [button]);
 
   return (
     <div className="flex flex-col items-center">
@@ -59,24 +66,26 @@ const ConnectWalletButton: React.FC = () => {
             <div>
               <button
                 type="button"
-                className="inline-flex items-center justify-center w-full rounded-md px-4 py-2 bg-blue-600 text-white text-sm font-medium hover:bg-blue-700"
+                className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-blue-600 text-sm font-medium text-white hover:bg-blue-700"
                 id="options-menu"
                 aria-haspopup="true"
                 aria-expanded={showDropdown}
                 onClick={handleDropdown}
               >
                 {`Connected: ${sliceAddress(address)}`}
-                <FontAwesomeIcon
-                  icon={showDropdown ? faSortDown : faSortUp}
-                  style={{
-                    color: "white",
-                    fontSize: "1.25rem",
-                    marginTop: showDropdown ? undefined : "0.5rem",
-                    marginBottom: showDropdown ? "0.5rem" : undefined,
-                    transition: "margin 0.3s linear",
-                  }}
-                  className="-mr-1 ml-2"
-                />
+                <svg
+                  className="-mr-1 ml-2 h-5 w-5"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
               </button>
             </div>
             {showDropdown && (
@@ -102,11 +111,14 @@ const ConnectWalletButton: React.FC = () => {
                     Profile
                   </NextLink>
                   <NextLink
-                    href="#"
+                    href="/"
                     className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
                     role="menuitem"
+                    onClick={() => {
+                      removeAddress();
+                    }}
                   >
-                    Log out
+                    Logout
                   </NextLink>
                 </div>
               </div>

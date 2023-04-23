@@ -1,6 +1,5 @@
 import React from "react";
-import ConnectButton from "../ConnectButton/ConnectButton";
-
+import Button from "../Common/Button";
 const Hero: React.FC = () => {
   return (
     <div className="bg-gradient-to-r from-blue-500 to-green-500 text-white py-20 text-center w-full">
@@ -9,7 +8,7 @@ const Hero: React.FC = () => {
         A decentralized platform for publishing and protecting your literary
         works
       </p>
-      <ConnectButton></ConnectButton>
+      <Button>{"Get Started"}</Button>
     </div>
   );
 };

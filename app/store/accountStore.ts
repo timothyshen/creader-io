@@ -1,20 +1,13 @@
-import create from "zustand";
+import { create } from "zustand";
 
 interface AccountState {
   address: string;
-  setAddress: (_address: string) => void;
+  setAddress: (address: string) => void;
+  removeAddress: () => void;
 }
 
-// generate store code
-const useWalletStore = create<AccountState>((set) => ({
+export const useWalletStore = create<AccountState>((set) => ({
   address: "",
   setAddress: (address) => set({ address }),
+  removeAddress: () => set({ address: "" }),
 }));
-
-export const useWalletAddress = () => {
-  useWalletStore((state) => state.address);
-};
-
-export const useSetWalletAddress = () => {
-  useWalletStore((state) => state.setAddress);
-};
