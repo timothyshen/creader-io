@@ -37,7 +37,6 @@ export default function Home() {
           <EmailSubscription />
         </main>
       </GenericLayout>
-      {/* Hero Section */}
     </>
   );
 }
