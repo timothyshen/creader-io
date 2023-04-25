@@ -20,7 +20,7 @@ const ContactUs = () => {
         />
       </Head>
       <GenericLayout>
-        <div className="container mx-auto mt-8">
+        <div className="container mx-auto my-8">
           <h1 className="text-2xl font-bold mb-4">Contact Us</h1>
           <p className="mb-4">
             If you have any questions, concerns, or feedback about our

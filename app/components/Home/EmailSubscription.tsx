@@ -2,7 +2,7 @@ import React from "react";
 
 const EmailSubscription: React.FC = () => {
   return (
-    <div className="text-center py-10">
+    <div className="text-center py-10 mb-10">
       <div>
         <h2 className="text-3xl font-bold tracking-tight text-blue-500 sm:text-4xl">
           Subscribe to our newsletter.

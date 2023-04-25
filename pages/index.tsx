@@ -9,7 +9,7 @@ import GenericLayout from "@/app/layout/GenericLayout";
 import HomeFeature from "@/app/components/Home/HomeFeature";
 import Testimonials from "@/app/components/Home/Testimonials";
 import EmailSubscription from "@/app/components/Home/EmailSubscription";
-import BookCaroual from "@/app/components/Home/BookCaroual";
+import PopularWork from "@/app/components/Home/PopularWork";
 
 // import the facebook icon
 
@@ -32,7 +32,7 @@ export default function Home() {
           {/* Testimonials */}
           <Testimonials />
           {/* Popular Works */}
-          <BookCaroual />
+          <PopularWork />
           {/* Get Started */}
           <EmailSubscription />
         </main>

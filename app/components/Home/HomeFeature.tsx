@@ -2,7 +2,7 @@ import React from "react";
 
 const HomeFeature: React.FC = () => {
   return (
-    <div className="py-16 px-8">
+    <div className="py-8 px-8">
       <h2 className="text-3xl font-bold mb-8 text-center">Platform Features</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div className="text-center">

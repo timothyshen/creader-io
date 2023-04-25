@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutSection: React.FC = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-16 px-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-8 px-8">
       <div className="bg-gray-100 p-8 rounded">
         <h2 className="text-2xl font-bold mb-4">For Authors</h2>
         <p>
