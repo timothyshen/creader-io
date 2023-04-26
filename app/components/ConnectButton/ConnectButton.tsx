@@ -7,6 +7,7 @@ import { useWalletStore } from "@/app/store/accountStore";
 
 const ConnectWalletButton: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
+  const [network, setNetwork] = useState<boolean>(false);
   const router = useRouter();
   const { address, setAddress, removeAddress } = useWalletStore();
   const button = useRef<HTMLButtonElement>(null);
@@ -36,6 +37,10 @@ const ConnectWalletButton: React.FC = () => {
     setShowDropdown(!showDropdown);
   };
 
+  const handleNetwork = async () => {
+    setNetwork(!network);
+  };
+
   const sliceAddress = (address: string) => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   };
@@ -60,6 +65,63 @@ const ConnectWalletButton: React.FC = () => {
 
   return (
     <div className="flex flex-col items-center">
+      <div>
+        <div>
+          <button
+            type="button"
+            className="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-blue-600 text-sm font-medium text-white hover:bg-blue-700"
+            id="options-menu"
+            aria-haspopup="true"
+            aria-expanded={network}
+            onClick={handleNetwork}
+            ref={button}
+          >
+            Ethereum
+            <svg
+              className="-mr-1 ml-2 h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5 7a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1zm0 4a1 1 0 011-1h8a1 1 0 110 2H6a1 1 0 01-1-1z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+        </div>
+        {network && (
+          <div className="absolute z-10 w-full mt-2 origin-top-right rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <div
+              className="py-1"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="options-menu"
+            >
+              <div
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+              >
+                Arbitrum
+              </div>
+              <div
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+              >
+                Polygon
+              </div>
+              <div
+                className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                role="menuitem"
+              >
+                BSC
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
       {address ? (
         <>
           <div className="relative inline-block text-left">
