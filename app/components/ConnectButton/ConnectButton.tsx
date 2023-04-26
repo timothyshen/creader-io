@@ -9,7 +9,7 @@ const ConnectWalletButton: React.FC = () => {
   const [showDropdown, setShowDropdown] = useState<boolean>(false);
   const router = useRouter();
   const { address, setAddress, removeAddress } = useWalletStore();
-  const button = useRef<HTMLDivElement>(null);
+  const button = useRef<HTMLButtonElement>(null);
 
   const handleConnectWallet = async () => {
     // Check if the user has an Ethereum wallet installed
@@ -71,6 +71,7 @@ const ConnectWalletButton: React.FC = () => {
                 aria-haspopup="true"
                 aria-expanded={showDropdown}
                 onClick={handleDropdown}
+                ref={button}
               >
                 {`Connected: ${sliceAddress(address)}`}
                 <svg
