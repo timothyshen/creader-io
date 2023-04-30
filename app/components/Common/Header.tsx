@@ -18,19 +18,19 @@ const Header: React.FC = () => {
                             Decentralized Publishing
                         </NextLink>
                     </h1>
+                    <div>
+                        <NextLink href="/" className="mr-4 hover:text-gray-300">
+                            Home
+                        </NextLink>
+                        <NextLink href="/browse" className="mr-4 hover:text-gray-300">
+                            Browse
+                        </NextLink>
+                        <NextLink href="/aboutus" className="hover:text-gray-300">
+                            About
+                        </NextLink>
+                    </div>
                 </div>
-                <div className="w-[60%] left-1">
-                    <NextLink href="/" className="mr-4 hover:text-gray-300">
-                        Home
-                    </NextLink>
-                    <NextLink href="/browse" className="mr-4 hover:text-gray-300">
-                        Browse
-                    </NextLink>
-                    <NextLink href="/about" className="hover:text-gray-300">
-                        About
-                    </NextLink>
-                </div>
-                {loggedIn && <ConnectWalletButton />}
+                <div className="w-max">{loggedIn && <ConnectWalletButton />}</div>
             </nav>
         </header>
     )

@@ -1,0 +1,18 @@
+[
+    {
+        "network": "ethereum",
+        "chainId": 1
+    },
+    {
+        "network": "Goerli",
+        "chainId": 5
+    },
+    {
+        "network": "Mumbai",
+        "chainId": 80001
+    },
+    {
+        "network": "Arbitrum Test",
+        "chainId": 421611
+    }
+]

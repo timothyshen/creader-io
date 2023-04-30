@@ -28,6 +28,14 @@ const SidePanel: React.FC = () => {
                             className="block py-2.5 px-4 hover:bg-gray-200 text-blue-900 rounded"
                             href="/author-dashboard/subscribers"
                         >
+                            My Copyright
+                        </NextLink>
+                    </li>
+                    <li>
+                        <NextLink
+                            className="block py-2.5 px-4 hover:bg-gray-200 text-blue-900 rounded"
+                            href="/author-dashboard/subscribers"
+                        >
                             Subscriber
                         </NextLink>
                     </li>
