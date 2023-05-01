@@ -4,8 +4,14 @@ const SettingsPage = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [bio, setBio] = useState("");
+  const [rows, setRows] = useState(4);
 
-  const handleSubmit = (e) => {
+  const handleRowsChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = parseInt(e.target.value, 10);
+    setRows(value);
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     // Update the user's profile settings here
   };
@@ -82,13 +88,17 @@ const SettingsPage = () => {
                 <label htmlFor="bio" className="block mb-2">
                   Bio
                 </label>
-                <textarea
-                  id="bio"
-                  className="w-full border border-gray-300 p-2 rounded"
-                  rows="4"
-                  value={bio}
-                  onChange={(e) => setBio(e.target.value)}
-                ></textarea>
+                  <textarea
+                    id="bio"
+                    className="w-full border border-gray-300 p-2 rounded"
+                    rows={rows}
+                    value={bio}
+                    onChange={(e) => setBio(e.target.value)}
+                  ></textarea>
+                <label> 
+                  Rows:
+                  <input type="number" value={rows} onChange={handleRowsChange} />
+                </label>
               </div>
               <button
                 type="submit"
